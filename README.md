@@ -106,7 +106,9 @@ python Libra.py -f urls.txt
 基于敏感字的暗链监测模块，随着规则库的完善，误报率直线上升，所以根据自己的需求维护合理的规则库，详见`Libra.db`
 ##### 其它
 微信推送模块默认关闭，请根据自身需求手动设置：`Libra\Config\config_push.py push_token`
+
 为保持启动速度，数据库自建模块默认关闭，如有需求，请手动解除注释：`Libra\Libra.py # db_start()`
+
 持续监测模块默认60分钟间隔，请自行调整：`Libra\Framework\Console.py  sleep(3600) #循环监控目标站点，默认时间60分钟`
 
 ### 项目地址

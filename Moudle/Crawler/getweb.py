@@ -14,6 +14,8 @@ import requests
 from multiprocessing import Pool, Manager
 from Config.config_requests import headers
 
+file_type_black=['.css','.jpg','png','bmp','.gif','.zip','.rar']
+
 def GetData(url):
     try:
         r = requests.get(url, headers=headers, timeout=5)
@@ -22,21 +24,33 @@ def GetData(url):
     except(requests.exceptions.ReadTimeout,requests.exceptions.ConnectTimeout,requests.exceptions.ConnectionError):
         return 'Timeout','Timeout'
 
+
 def crawler_api(url):
     if isinstance(url, str):
         out_link=[]
         in_link=[]
         html=GetData(url)[1]
-        bbb=re.compile('href="(.*?)"')
+        href = re.compile('href="(.*?)"')
+        src = re.compile('src="(.*?)"')
+        res_href = href.findall(html)
+        res_src = src.findall(html)
+        res_html = res_href+res_src
         in_link.append(url)
-        for i in bbb.findall(html):
-            if 'http' in i:
-                out_link.append(i)
-            else:
-                if i[0]=='/':
-                    in_link.append(url+i)
+        for i in res_html:
+            file_ok=True
+            for j in file_type_black:
+                if j in i:
+                    file_ok = False
+                    break
+            if file_ok:
+                if i[:4] == 'http':
+                    out_link.append(i)
                 else:
-                    in_link.append(url+'/'+ i)
+                    if i[0]=='/':
+                        in_link.append(url+i)
+                    else:
+                        in_link.append(url+'/'+ i)
+
         res=[]
         for i in list(set(out_link+in_link)):
             tmp=[]

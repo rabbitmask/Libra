@@ -1,6 +1,15 @@
 # Libra
 Libra [ 天秤座 ] | 网站篡改、暗链、死链监测平台
 
+### 更新日志
+```
+V 1.1 更新
+完善链接标签，丰富爬取维度
+增加深度爬取黑名单，不再对css、图片、压缩文件等内容进行监测
+具体参见 Libra\Moudle\Crawler\getweb.py file_type_black
+优化各项正则语法，提升辨析准确度
+```
+
 ### 开发背景
 重保期间大量单位对关键站点存在防篡改需求，且大量资产存在维护不及时，存在未知暗链死链，这些资产被非法滥用将产生无法估量的损失，so
 
@@ -15,7 +24,7 @@ Libra [ 天秤座 ] | 网站篡改、暗链、死链监测平台
 ╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 
           Libra | 网站篡改、暗链、死链监测平台
-          By RabbitMask | V 1.0
+          By RabbitMask | V 1.1
 
 usage: Libra.py [-h] [-u URL] [-m MONITOR] [-f FILE]
 
@@ -39,7 +48,7 @@ python Libra.py -u http://127.0.0.1
 ╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 
           Libra | 网站篡改、暗链、死链监测平台
-          By RabbitMask | V 1.0
+          By RabbitMask | V 1.1
 
 http://127.0.0.1 200
 数据爬取完成，正在生成报告，请稍后......
@@ -61,7 +70,7 @@ python Libra.py -m http://127.0.0.1
 ╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 
           Libra | 网站篡改、暗链、死链监测平台
-          By RabbitMask | V 1.0
+          By RabbitMask | V 1.1
 
 Wings守护 | Libra 持续监测中......
 http://127.0.0.1 200

@@ -71,10 +71,11 @@ def crawler_api(url):
                 if 'http' in j:
                     out_link.append(j)
                 else:
-                    if j[0]=='/':
-                        in_link.append(i+j)
-                    else:
-                        in_link.append(i +'/'+ j)
+                    if j:
+                        if j[0]=='/':
+                            in_link.append(i+j)
+                        else:
+                            in_link.append(i +'/'+ j)
             for k in list(set(out_link+in_link)):
                 tmp=[]
                 tmp.append(k)

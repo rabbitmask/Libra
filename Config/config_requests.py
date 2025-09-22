@@ -1,23 +1,5 @@
 #!/usr/bin/env python3
 # _*_ coding:utf-8 _*_
-'''
- ____       _     _     _ _   __  __           _
-|  _ \ __ _| |__ | |__ (_) |_|  \/  | __ _ ___| | __
-| |_) / _` | '_ \| '_ \| | __| |\/| |/ _` / __| |/ /
-|  _ < (_| | |_) | |_) | | |_| |  | | (_| \__ \   <
-|_| \_\__,_|_.__/|_.__/|_|\__|_|  |_|\__,_|___/_|\_\
-'''
-
-# from fake_useragent import UserAgent
-#
-# # 实例化 UserAgent 类
-# ua = UserAgent(verify_ssl=False)
-#
-# # 通用headers配置
-# headers={"User-Agent":ua.random}
-#
-# if __name__ == '__main__':
-#     print(headers)
 
 import random
 
@@ -72,7 +54,12 @@ ua=random.choice([
 "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.15 (KHTML, like Gecko) Chrome/24.0.1295.0 Safari/537.15",
 "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.14 (KHTML, like Gecko) Chrome/24.0.1292.0 Safari/537.14"])
 
-headers={"User-Agent":ua}
+baiduspider_headers={"User-Agent": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Baiduspider Chrome/113.0.1453.90 Safari/537.36",
+         "Referer":"http://www.baidu.com", }
+
+normal_headers={"User-Agent":ua,
+                "Referer":"http://www.baidu.com",
+                "Accept-Language":"zh-CN,zh;q=0.9",}
 
 if __name__ == '__main__':
-    print(headers)
+    print(baiduspider_headers)
